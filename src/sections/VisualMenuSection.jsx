@@ -1,5 +1,7 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Skeleton, Typography } from "@mui/material";
 import CustomBox from "../components/CustomBox";
+
+const projects = ['Project-1', 'Project-2', 'Project-3']
 
 export default function VisualMenuSection() {
   return (
@@ -8,12 +10,18 @@ export default function VisualMenuSection() {
       minHeight='60vh'
       bgcolor='#faf0e6'
     >
-      <Card raised sx={{ maxWidth: 350 }}>
-          <CardMedia 
+      {projects.map((project) => (
+        <Card key={project} raised sx={{ maxWidth: 350 }}>
+          {/* <CardMedia 
             component="img"
             alt='profile'
             height={300}
             image='./src/images/visual-1.jpg'
+          /> */}
+          <Skeleton 
+            sx={{ height: 300, width: 350 }} 
+            animation="wave" 
+            variant="rectangular" 
           />
           <CardContent sx={{ background: '#faf0e6' }}>
             <Typography
@@ -21,44 +29,11 @@ export default function VisualMenuSection() {
               textAlign='center'
               variant='h5'
             >
-              PROJECT-1
+              {project}
             </Typography>
           </CardContent>
       </Card>
-      <Card raised sx={{ maxWidth: 350 }}>
-          <CardMedia 
-            component="img"
-            alt='profile'
-            height={300}
-            image='./src/images/visual-2.jpg'
-          />
-          <CardContent sx={{ background: '#faf0e6' }}>
-            <Typography
-              gutterBottom
-              textAlign='center'
-              variant='h5'
-            >
-              PROJECT-2
-            </Typography>
-          </CardContent>
-      </Card>
-      <Card raised sx={{ maxWidth: 350 }}>
-          <CardMedia 
-            component="img"
-            alt='profile'
-            height={300}
-            image='./src/images/visual-3.jpg'
-          />
-          <CardContent sx={{ background: '#faf0e6' }}>
-            <Typography
-              gutterBottom
-              textAlign='center'
-              variant='h5'
-            >
-              PROJECT-3
-            </Typography>
-          </CardContent>
-      </Card>
+      ))}
     </CustomBox>
   )
 }

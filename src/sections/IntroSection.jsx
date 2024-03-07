@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardMedia, Typography } from "@mui/material";
+import { Box, Button, Card, Skeleton, Typography } from "@mui/material";
 import CustomBox from "../components/CustomBox";
 
 export default function IntroSection() {
@@ -11,11 +11,16 @@ export default function IntroSection() {
       }}
     >
       <Card raised sx={{ maxWidth: 350 }}>
-        <CardMedia 
+        {/* <CardMedia 
           component="img"
           alt='profile'
           height={400}
           image='./src/images/nahida.jpg'
+        /> */}
+        <Skeleton 
+          sx={{ height: 400, width: 350 }} 
+          animation="wave" 
+          variant="rectangular" 
         />
       </Card>
       <Box
